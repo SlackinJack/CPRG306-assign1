@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unit Converter</title>
+</head>
+<body>
+    <div class="container">
+        <form id="form">
+            <label for="numberInput">Enter a number to convert:</label><br>
+            <input id="numberInput" name="numberInput" type="number" step="any">
+            <input type="submit" id="submit" name="submit" value="Convert!">
+        </form>
+        <p id="output">
+        output
+        </p>
+    </div>
+        <script>
+        // unitOut is unused.
+        function convert(unitIn, unitOut) {
+            switch (unitIn) {
+                case "celsius":
+                    return (...args) => {return args.map(v => (v * 1.8) + 32);};
+                case "fahrenheit":
+                    return (...args) => {return args.map(v => (v - 32) / 1.8);};
+                case "kilometer":
+                    return (...args) => {return args.map(v => v *= 0.6213712);};
+                case "mile":
+                    return (...args) => {return args.map(v => v *= 1.609344);};
+                case "kilogram":
+                    return (...args) => {return args.map(v => v *= 2.204623);};
+                case "pound":
+                    return (...args) => {return args.map(v => v *= 0.4535924);};
+                default:
+                    return;
+            }
+        }
+        
+        var page = 0;
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var number = document.getElementById("numberInput").value;
+            
+            const operation = convert("pound", "mile");
+            console.log(operation);
+            output = operation(2);
+            console.log(output);
+            document.getElementById("output").innerHTML = output.toString();
+        });
+    </script>
+</body>
+</html>
