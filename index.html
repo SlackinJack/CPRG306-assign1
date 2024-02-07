@@ -2,9 +2,109 @@
 <html>
 <head>
 <title>Unit Converter</title>
+<link href="./src/output.css" rel="stylesheet ">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-    <div class="container">
+
+
+<body class = "bg-blue-400 tec">
+
+<h1 class="font-bold italic text-5xl text-center"> Simple unit converter </h1> 
+
+    <nav>
+                <div class="text">  
+                    </div>
+                    <a class= "cursor-pointer  hover:bg-white border-solid border-5 text-3xl" id="weightTab"> Weight </a>
+                    <a class= "cursor-pointer  hover:bg-white border-solid border-5 text-3xl" id="distanceTab"> Distance </a>
+                    <a class= "cursor-pointer  hover:bg-white border-solid border-5 text-3xl" id="tempTab"> Temperature </a>
+                </div>
+    </nav>
+
+    <div class="mt-4">
+
+        <!-- Weight Tab ------------------------------------------------------------------>
+        <div id="weight" class="hdden">
+            <h2 class="text-xl font-bold mb-4 text-center">Weight Converter</h2>
+            <div class="container">
+                <form id="form">
+
+                    <div>
+                    <label for="numberInput">Pounds :</label><br>
+                    <input id="poundInput" name="poundInput" type="number" step="any">
+                    <input type="submit" id="convertToKg" name="submit" value="Convert!">
+                    </div>
+
+                    <div>
+                    <label for="numberInput">Kilograms :</label><br>
+                    <input id="kiloGramInput" name="kiloGramInput" type="number" step="any">
+                    <input type="submit" id="convertToLbs" name="submit" value="Convert!">
+                    </div>
+                    
+                </form>
+                <p id="output">
+                output
+                </p>
+            </div>
+        </div>
+
+        <!-- Distance Tab ------------------------------------------------------------------>
+        <div id="distance" class="hidden">
+            <h2 class="text-xl font-bold mb-4 text-center">Distance Converter</h2>
+            <div class="container">
+                <form id="form">
+
+                    <div>
+                    <label for="numberInput">Miles :</label><br>
+                    <input id="milesInput" name="milesInput" type="number" step="any">
+                    <input type="submit" id="convertToKM" name="submit" value="Convert!">
+                    </div>
+
+                    <div>
+                    <label for="numberInput">Kilometres :</label><br>
+                    <input id="kiloGramInput" name="kiloGramInput" type="number" step="any">
+                    <input type="submit" id="convertToMiles" name="submit" value="Convert!">
+                    </div>
+                    
+                </form>
+                <p id="output">
+                output
+                </p>
+            </div>
+        </div>
+
+        <!-- Temperature Tab ------------------------------------------------------------------>
+        <div id="temperature" class="hidden">
+            <h2 class="text-xl font-bold mb-4 text-center">Temperature Converter</h2>
+            <div class="container">
+                <form id="form">
+
+                    <div>
+                    <label for="numberInput">Fahrenheit :</label><br>
+                    <input id="fahrenheitInput" name="fahrenheitInput" type="number" step="any">
+                    <input type="submit" id="converToCelcius" name="submit" value="Convert!">
+                    </div>
+
+                    <div>
+                    <label for="numberInput">Celcius :</label><br>
+                    <input id="celciusInput" name="celciusInput" type="number" step="any">
+                    <input type="submit" id="convertToFarenheit" name="submit" value="Convert!">
+                    </div>
+                    
+                </form>
+                <p id="output">
+                output
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    
+
+
+    <!-- <div class="container">
         <form id="form">
             <label for="numberInput">Enter a number to convert:</label><br>
             <input id="numberInput" name="numberInput" type="number" step="any">
@@ -13,8 +113,42 @@
         <p id="output">
         output
         </p>
-    </div>
+    </div> -->
         <script>
+
+       
+        document.getElementById("weightTab").addEventListener("click", function () {
+           
+            document.getElementById("weight").classList.remove("hidden");
+            document.getElementById("distance").classList.add("hidden");
+            document.getElementById("temperature").classList.add("hidden");
+
+            
+            console.log("weightTab clicked")
+
+        });
+        
+
+        document.getElementById("distanceTab").addEventListener("click", function () {
+           
+           document.getElementById("distance").classList.remove("hidden");
+           document.getElementById("weight").classList.add("hidden");
+           document.getElementById("temperature").classList.add("hidden");
+
+           console.log("distanceTab clicked")
+
+       });
+
+       document.getElementById("tempTab").addEventListener("click", function () {
+           
+           document.getElementById("temperature").classList.remove("hidden");
+           document.getElementById("distance").classList.add("hidden");
+           document.getElementById("weight").classList.add("hidden");
+           
+           console.log("temperatureTab clicked")
+
+       });
+
         // unitOut is unused.
         function convert(unitIn, unitOut) {
             switch (unitIn) {
