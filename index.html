@@ -10,24 +10,20 @@
 
     <body class="tec bg-gray-400">
         <nav>
-            <h1 class="font-bold italic bg-gray-400 text-5xl"> Simple unit converter </h1> 
-            <div class="text bg-blue-400">  
+            <h1 class="font-bold italic bg-gray-400 text-5xl text-center"> Simple unit converter </h1> 
+            <div class="text bg-blue-400 text-center">  
                 <a class="cursor-pointer text-3xl" id="weightTab">&nbsp;Weight&nbsp;</a>
                 <a class="cursor-pointer text-3xl" id="distanceTab">&nbsp;Distance&nbsp;</a>
                 <a class="cursor-pointer text-3xl" id="temperatureTab">&nbsp;Temperature&nbsp;</a>
             </div>
         </nav>
-
         <div class="mt-4">
-
             <!-- Weight Tab ------------------------------------------------------------------>
             <div id="weight" class="hidden">
-                <h2 class="text-xl font-bold text-center">Weight Converter</h2>
-                <br>
-                <h3 class="text-m font-bold text-center">(Separate multiple values with comma)</h3>
-                <div class="container">
-                    <form id="weightForm">
-
+                <h2 class="text-xl font-bold text-center text-blue-950">Weight Converter</h2>
+                <h3 class="font-bold text-center text-blue-950">(Separate multiple values with comma)</h3>
+                <div class="text-center mt-4">
+                    <form class="text-blue-950" id="weightForm">
                         <div>
                             <label for="poundInput">Pounds :</label><br>
                             <input id="poundInput" name="poundInput" type="text">
@@ -42,15 +38,12 @@
                     </form>
                 </div>
             </div>
-
             <!-- Distance Tab ------------------------------------------------------------------>
             <div id="distance" class="hidden">
-                <h2 class="text-xl font-bold text-center">Distance Converter</h2>
-                <br>
-                <h3 class="text-m font-bold text-center">(Separate multiple values with comma)</h3>
-                <div class="container">
-                    <form id="distanceForm">
-
+                <h2 class="text-xl font-bold text-center text-blue-950">Distance Converter</h2>
+                <h3 class=" font-bold text-center text-blue-950">(Separate multiple values with comma)</h3>
+                <div class="text-center mt-4">
+                    <form class="text-blue-950" id="distanceForm">
                         <div>
                             <label for="mileInput">Miles :</label><br>
                             <input id="mileInput" name="mileInput" type="text">
@@ -65,15 +58,12 @@
                     </form>
                 </div>
             </div>
-
             <!-- Temperature Tab ------------------------------------------------------------------>
             <div id="temperature" class="hidden">
-                <h2 class="text-xl font-bold text-center">Temperature Converter</h2>
-                <br>
-                <h3 class="text-m font-bold text-center">(Separate multiple values with comma)</h3>
-                <div class="container">
-                    <form id="temperatureForm">
-
+                <h2 class="text-xl font-bold text-center text-blue-950">Temperature Converter</h2>
+                <h3 class=" font-bold text-center text-blue-950">(Separate multiple values with comma)</h3>
+                <div class="text-center mt-4">
+                    <form class="text-blue-950" id="temperatureForm">
                         <div>
                             <label for="fahrenheitInput">Fahrenheit :</label><br>
                             <input id="fahrenheitInput" name="fahrenheitInput" type="text">
@@ -89,7 +79,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             /********************/
             /*** BEGIN EVENTS ***/
