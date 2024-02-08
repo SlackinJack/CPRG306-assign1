@@ -1,4 +1,12 @@
 /*
+begin custom:
+*/
+.selected {
+  color: rgba(255,255,255,1);
+}
+
+
+/*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 */
 
@@ -713,7 +721,3 @@ video {
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
-.hover\:bg-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}

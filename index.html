@@ -8,13 +8,13 @@
     </head>
 
 
-    <body class = "bg-blue-400 tec">
+    <body class="tec bg-gray-400">
         <nav>
-            <h1 class="font-bold italic text-5xl text-center"> Simple unit converter </h1> 
-            <div class="text text-center">  
-                <a class= "cursor-pointer  hover:bg-white border-solid border-5 text-3xl" id="weightTab"> Weight </a>
-                <a class= "cursor-pointer  hover:bg-white border-solid border-5 text-3xl" id="distanceTab"> Distance </a>
-                <a class= "cursor-pointer  hover:bg-white border-solid border-5 text-3xl" id="tempTab"> Temperature </a>
+            <h1 class="font-bold italic bg-gray-400 text-5xl"> Simple unit converter </h1> 
+            <div class="text bg-blue-400">  
+                <a class="cursor-pointer text-3xl" id="weightTab">&nbsp;Weight&nbsp;</a>
+                <a class="cursor-pointer text-3xl" id="distanceTab">&nbsp;Distance&nbsp;</a>
+                <a class="cursor-pointer text-3xl" id="temperatureTab">&nbsp;Temperature&nbsp;</a>
             </div>
         </nav>
 
@@ -22,108 +22,171 @@
 
             <!-- Weight Tab ------------------------------------------------------------------>
             <div id="weight" class="hidden">
-                <h2 class="text-xl font-bold mb-4 text-center">Weight Converter</h2>
+                <h2 class="text-xl font-bold text-center">Weight Converter</h2>
+                <br>
+                <h3 class="text-m font-bold text-center">(Separate multiple values with comma)</h3>
                 <div class="container">
-                    <form id="form">
+                    <form id="weightForm">
 
                         <div>
-                            <label for="numberInput">Pounds :</label><br>
-                            <input id="poundInput" name="poundInput" type="number" step="any">
-                            <input type="submit" id="convertToKg" name="submit" value="Convert!">
+                            <label for="poundInput">Pounds :</label><br>
+                            <input id="poundInput" name="poundInput" type="text">
+                            <input class="cursor-pointer border-2" type="button" onclick="toKG()" value="Convert to Kilograms">
                         </div>
 
                         <div>
-                            <label for="numberInput">Kilograms :</label><br>
-                            <input id="kiloGramInput" name="kiloGramInput" type="number" step="any">
-                            <input type="submit" id="convertToLbs" name="submit" value="Convert!">
+                            <label for="kilogramInput">Kilograms :</label><br>
+                            <input id="kilogramInput" name="kilogramInput" type="text">
+                            <input class="cursor-pointer border-2" type="button" onclick="toLB()" value="Convert to Pounds">
                         </div>
-
                     </form>
-                    <p id="output">
-                        output
-                    </p>
                 </div>
             </div>
 
             <!-- Distance Tab ------------------------------------------------------------------>
             <div id="distance" class="hidden">
-                <h2 class="text-xl font-bold mb-4 text-center">Distance Converter</h2>
+                <h2 class="text-xl font-bold text-center">Distance Converter</h2>
+                <br>
+                <h3 class="text-m font-bold text-center">(Separate multiple values with comma)</h3>
                 <div class="container">
-                    <form id="form">
+                    <form id="distanceForm">
 
                         <div>
-                            <label for="numberInput">Miles :</label><br>
-                            <input id="milesInput" name="milesInput" type="number" step="any">
-                            <input type="submit" id="convertToKM" name="submit" value="Convert!">
+                            <label for="mileInput">Miles :</label><br>
+                            <input id="mileInput" name="mileInput" type="text">
+                            <input class="cursor-pointer border-2" type="button" onclick="toKM()" value="Convert to Kilometers">
                         </div>
 
                         <div>
-                            <label for="numberInput">Kilometers :</label><br>
-                            <input id="kiloGramInput" name="kiloGramInput" type="number" step="any">
-                            <input type="submit" id="convertToMiles" name="submit" value="Convert!">
+                            <label for="kilometerInput">Kilometers :</label><br>
+                            <input id="kilometerInput" name="kilometerInput" type="text">
+                            <input class="cursor-pointer border-2" type="button" onclick="toM()" value="Convert to Miles">
                         </div>
-
                     </form>
-                    <p id="output">
-                        output
-                    </p>
                 </div>
             </div>
 
             <!-- Temperature Tab ------------------------------------------------------------------>
             <div id="temperature" class="hidden">
-                <h2 class="text-xl font-bold mb-4 text-center">Temperature Converter</h2>
+                <h2 class="text-xl font-bold text-center">Temperature Converter</h2>
+                <br>
+                <h3 class="text-m font-bold text-center">(Separate multiple values with comma)</h3>
                 <div class="container">
-                    <form id="form">
+                    <form id="temperatureForm">
 
                         <div>
-                            <label for="numberInput">Fahrenheit :</label><br>
-                            <input id="fahrenheitInput" name="fahrenheitInput" type="number" step="any">
-                            <input type="submit" id="converToCelcius" name="submit" value="Convert!">
+                            <label for="fahrenheitInput">Fahrenheit :</label><br>
+                            <input id="fahrenheitInput" name="fahrenheitInput" type="text">
+                            <input class="cursor-pointer border-2" type="button" onclick="toC()" value="Convert to Celsius">
                         </div>
 
                         <div>
-                            <label for="numberInput">Celsius :</label><br>
-                            <input id="celciusInput" name="celciusInput" type="number" step="any">
-                            <input type="submit" id="convertToFarenheit" name="submit" value="Convert!">
+                            <label for="celsiusInput">Celsius :</label><br>
+                            <input id="celsiusInput" name="celsiusInput" type="text">
+                            <input class="cursor-pointer border-2" type="button" onclick="toF()" value="Convert to Fahrenheit">
                         </div>
-
                     </form>
-                    <p id="output">
-                        output
-                    </p>
                 </div>
             </div>
-
         </div>
 
         <script>
+            /********************/
+            /*** BEGIN EVENTS ***/
+            /********************/
+            document.getElementById("weightTab").addEventListener("click", function() {
+                hideAllElements();
+                showElement("weight", "weightTab");
+            });
 
+            document.getElementById("distanceTab").addEventListener("click", function() {
+                hideAllElements();
+                showElement("distance", "distanceTab");
+            });
 
-            document.getElementById("weightTab").addEventListener("click", function () {
-                document.getElementById("weight").classList.remove("hidden");
+            document.getElementById("temperatureTab").addEventListener("click", function() {
+                hideAllElements();
+                showElement("temperature", "temperatureTab");
+            });
+            /********************/
+            /* BEGIN VISIBILITY */
+            /********************/
+            function hideAllElements() {
+                document.getElementById("weight").classList.add("hidden");
                 document.getElementById("distance").classList.add("hidden");
                 document.getElementById("temperature").classList.add("hidden");
-                console.log("weightTab clicked")
-
-            });
-
-            document.getElementById("distanceTab").addEventListener("click", function () {
-                document.getElementById("distance").classList.remove("hidden");
-                document.getElementById("weight").classList.add("hidden");
-                document.getElementById("temperature").classList.add("hidden");
-                console.log("distanceTab clicked")
-
-            });
-
-            document.getElementById("tempTab").addEventListener("click", function () {
-                document.getElementById("temperature").classList.remove("hidden");
-                document.getElementById("distance").classList.add("hidden");
-                document.getElementById("weight").classList.add("hidden");
-                console.log("temperatureTab clicked")
-
-            });
-
+                document.getElementById("weightTab").classList.remove("selected");
+                document.getElementById("distanceTab").classList.remove("selected");
+                document.getElementById("temperatureTab").classList.remove("selected");
+            }
+            
+            function showElement(parentElementIdIn, tabElementIdIn) {
+                document.getElementById(parentElementIdIn).classList.remove("hidden");
+                document.getElementById(tabElementIdIn).classList.add("selected");
+            }
+            
+            /********************/
+            /* BEGIN CONVERSION */
+            /********************/
+            function getTextFromElement(elementIdIn) {
+                return document.getElementById(elementIdIn).value;
+            }
+            
+            function setTextForElement(elementIdIn, textIn) {
+                document.getElementById(elementIdIn).value = textIn;
+            }
+            
+            function writeResults(inputFieldIn, unitIn, inputFieldOut) {
+                input = getTextFromElement(inputFieldIn);
+                if (input.includes(",")) {
+                    inputValues = input.split(",");
+                    inputArray = [];
+                    for (i = 0; i < inputValues.length; i++) {
+                        inputArray[i] = parseFloat(inputValues[i]);
+                    }
+                    input = inputArray;
+                } else {
+                    input = [parseFloat(input)];
+                }
+                func = convert(unitIn);
+                output = func.apply(this, input);
+                if (output.length > 1) {
+                    stringBuilder = "";
+                    for (i = 0; i < output.length; i++) {
+                        stringBuilder += output[i];
+                        if (i != output.length - 1) {
+                            stringBuilder += ",";
+                        }
+                    }
+                    setTextForElement(inputFieldOut, stringBuilder);
+                } else {
+                    setTextForElement(inputFieldOut, output[0]);
+                }
+            }
+            
+            function toC() {
+                writeResults("fahrenheitInput", "fahrenheit", "celsiusInput");
+            }
+            
+            function toF() {
+                writeResults("celsiusInput", "celsius", "fahrenheitInput");
+            }
+            
+            function toKG() {
+                writeResults("poundInput", "pound", "kilogramInput");
+            }
+            
+            function toLB() {
+                writeResults("kilogramInput", "kilogram", "poundInput");
+            }
+            
+            function toKM() {
+                writeResults("mileInput", "mile", "kilometerInput");
+            }
+            function toM() {
+                writeResults("kilometerInput", "kilometer", "mileInput");
+            }
+            
             // unitOut is unused.
             function convert(unitIn, unitOut) {
                 switch (unitIn) {
@@ -155,18 +218,6 @@
                         return;
                 }
             }
-
-            var page = 0;
-            document.getElementById("form").addEventListener("submit", function (event) {
-                event.preventDefault();
-                var number = document.getElementById("numberInput").value;
-
-                const operation = convert("pound", "mile");
-                console.log(operation);
-                output = operation(2);
-                console.log(output);
-                document.getElementById("output").innerHTML = output.toString();
-            });
         </script>
     </body>
 </html>
